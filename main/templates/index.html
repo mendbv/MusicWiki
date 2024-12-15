@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome to Music Wiki!</h2>
+<h3>Latest Groups</h3>
+<ul>
+    {% for group in groups %}
+    <li><a href="/group/{{ group.id }}/">{{ group.name }}</a></li>
+    {% endfor %}
+</ul>
+<h3>Latest Albums</h3>
+<ul>
+    {% for album in albums %}
+    <li><a href="/album/{{ album.id }}/">{{ album.name }}</a></li>
+    {% endfor %}
+</ul>
+<h3>Latest Songs</h3>
+<ul>
+    {% for song in songs %}
+    <li><a href="/song/{{ song.id }}/">{{ song.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

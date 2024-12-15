@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Group Detail{% endblock %}
+
+{% block content %}
+<h2>{{ group.name }}</h2>
+<p>{{ group.description }}</p>
+<h3>Albums</h3>
+<ul>
+    {% for album in albums %}
+    <li><a href="/album/{{ album.id }}/">{{ album.name }}</a></li>
+    {% endfor %}
+</ul>
+<h3>Songs</h3>
+<ul>
+    {% for song in songs %}
+    <li><a href="/song/{{ song.id }}/">{{ song.name }}</a></li>
+    {% endfor %}
+</ul>
+<h3>Members</h3>
+<ul>
+    {% for member in members %}
+    <li><a href="/member/{{ member.id }}/">{{ member.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

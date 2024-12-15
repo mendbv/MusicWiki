@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Albums{% endblock %}
+
+{% block content %}
+<h2>All Albums</h2>
+<ul>
+    {% for album in albums %}
+    <li><a href="/album/{{ album.id }}/">{{ album.name }}</a></li>
+    {% endfor %}
+</ul>
+<div class="pagination">
+    {% if albums.has_previous %}
+    <a href="?page={{ albums.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% for num in albums.paginator.page_range %}
+    <a href="?page={{ num }}">{{ num }}</a>
+    {% endfor %}
+
+    {% if albums.has_next %}
+    <a href="?page={{ albums.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+{% endblock %}

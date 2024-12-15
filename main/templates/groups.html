@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Groups{% endblock %}
+
+{% block content %}
+<h2>All Groups</h2>
+<ul>
+    {% for group in groups %}
+    <li><a href="/group/{{ group.id }}/">{{ group.name }}</a></li>
+    {% endfor %}
+</ul>
+<div class="pagination">
+    {% if groups.has_previous %}
+    <a href="?page={{ groups.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% for num in groups.paginator.page_range %}
+    <a href="?page={{ num }}">{{ num }}</a>
+    {% endfor %}
+
+    {% if groups.has_next %}
+    <a href="?page={{ groups.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+{% endblock %}
